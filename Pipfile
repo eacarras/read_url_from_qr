@@ -7,10 +7,10 @@ verify_ssl = true
 
 [packages]
 qrcode = "==6.1"
-opencv-python = "==4.2.0.32"
 pillow = "*"
 pyzbar = {extras = ["scripts"],version = "*"}
 requests = "*"
+argparse = "*"
 
 [requires]
 python_version = "3.6"

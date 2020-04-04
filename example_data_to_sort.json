@@ -1,0 +1,26 @@
+{
+    "data":
+        [
+            {
+            "_id": "5db9b8a8d16099176129930b",
+            "workpoint_id": "wp1",
+            "is_occupied": true,
+            "created_at": "2019-10-30T08:11:40.327Z",
+            "session_id": "5db9b8a6d16099176129930a",
+            "building_id": "bui-001",
+            "building_layout_id": "37c60c2c-0de4-471b-91e7-f3bbe4422c25",
+            "cluster_id": "cluster-001"
+            },
+            {
+            "_id": "5db9b8a8d16099176129930c",
+            "workpoint_id": "wp2",
+            "is_occupied": true,
+            "created_at": "2019-10-30T08:18:40.327Z",
+            "session_id": "5db9b8a6d16099176129930a",
+            "building_id": "bui-001",
+            "building_layout_id": "37c60c2c-0de4-471b-91e7-f3bbe4422c25",
+            "cluster_id": "cluster-001"
+            }
+        ]
+}  
+  
