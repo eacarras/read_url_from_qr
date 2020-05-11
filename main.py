@@ -7,6 +7,7 @@ from pyzbar.pyzbar import decode
 import json
 
 import requests
+import subprocess
 
 from datetime import datetime
 import time
@@ -21,6 +22,7 @@ parser = argparse.ArgumentParser(description='Cli Tool for different utils funct
 parser.add_argument('-u',  '--url', action='store', help='URL for download QR code.')
 parser.add_argument('-j',  '--json', action='store', help='Json file name.', type=str, default=NAME_JSON_FILE)
 parser.add_argument('-d',  '--date', action='store', help='Convert epoch to date.', type=int, default=NAME_JSON_FILE)
+parser.add_argument('-cw',  '--check-wifi', action='store', help='Check wifi passwords.')
 
 args = parser.parse_args()
 
@@ -37,6 +39,20 @@ elif args.date:
 
     print(time_str)
     exit(0)
+elif args.check_wifi:
+    a = subprocess.checkoutput(['netsh', 'wlan', 'show', 'profiles']).decode('utf-8').split('\n')
+    a = [i.split(':')[1][1:-1] for i in a if "All User Profile" in i]
+    for i in a:
+        results = subprocess.checkoutput(['netsh', 'wlan', 'show', 'profiles'], i, 'key=clear').decode('utf-8').split('\n')
+        results = [b.split(':')[1][1:-1] for b in results if "Key Content" in b]
+
+        try:
+            print("{:<30}| {:<}".format(i, results[0]))
+        except IndexError:
+            print("{:<30}| {:<}".format(i, ""))
+    
+    exit(0)
+
 
 
 def convert_str_to_date_time(list_obj):
