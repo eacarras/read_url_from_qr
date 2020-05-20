@@ -22,7 +22,7 @@ parser = argparse.ArgumentParser(description='Cli Tool for different utils funct
 parser.add_argument('-u',  '--url', action='store', help='URL for download QR code.')
 parser.add_argument('-j',  '--json', action='store', help='Json file name.', type=str, default=NAME_JSON_FILE)
 parser.add_argument('-d',  '--date', action='store', help='Convert epoch to date.', type=int, default=NAME_JSON_FILE)
-parser.add_argument('-cw',  '--check-wifi', action='store', help='Check wifi passwords.')
+parser.add_argument('-cw',  '--check-wifi', action='store', help='Check wifi passwords, works in Window only.')
 
 args = parser.parse_args()
 
